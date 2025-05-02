@@ -1,16 +1,26 @@
 # ecom_app_flutter
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Changer le logo de l'application
+    - Il faut placer l'icon dans le dossier `assets/icon`
+    - Installation du package flutter_launcher_icons
+      - flutter pub add flutter_launcher_icons
+    - configuration de l'icon dans le fichier pubspec.yaml
+        ```yaml
+          flutter_launcher_icons:
+            android: "launcher_icon"
+            ios: true
+            image_path: "assets/icon/icon.png"
+            min_sdk_android: 21 # Android SDK minimal
+            web:
+              generate: true
+            windows:
+              generate: true
+            macos:
+              generate: true
+        ```
+    - Exécuter la commande suivante pour générer l'icon
+      ```bash
+      flutter pub run flutter_launcher_icons
+      ```
+   Cela aura pour effet de changer l'icon de l'application sur toutes les plateformes (Android, iOS, Web, Windows, MacOS).
+2. Changer le splash de l'application
