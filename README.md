@@ -23,7 +23,7 @@
         flutter pub run flutter_launcher_icons
       ```
    Cela aura pour effet de changer l'icon de l'application sur toutes les plateformes (Android, iOS, Web, Windows, MacOS). <br/>
-    <img src="readme/1.png" alt="icon" /> <br>
+    <img src="readme/1.jpg" alt="icon" /> <br>
 2. Changer le splash de l'application
    - Installation de la dependance
      - flutter pub add flutter_native_splash
@@ -39,4 +39,4 @@
       ```bash
           dart run flutter_native_splash:create
       ```
-     <br/><img src="readme/2.png" alt="icon splash" /> <br>
+   <br/><img src="readme/2.jpg" alt="icon splash" /> <br>
