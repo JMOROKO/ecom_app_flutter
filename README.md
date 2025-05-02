@@ -22,5 +22,21 @@
       ```bash
       flutter pub run flutter_launcher_icons
       ```
-   Cela aura pour effet de changer l'icon de l'application sur toutes les plateformes (Android, iOS, Web, Windows, MacOS).
+   Cela aura pour effet de changer l'icon de l'application sur toutes les plateformes (Android, iOS, Web, Windows, MacOS). <br/>
+    <img src="readme/1.png" alt="icon" /> <br>
 2. Changer le splash de l'application
+   - Installation de la dependance
+     - flutter pub add flutter_native_splash
+   - Création du fichier de configuration à la racine du projet flutter_native_splash.yaml
+   - Récupération de toutes les images contenue dans le fichier asset en modifiant le fichier pubspec.yaml
+     ````yaml
+      flutter:
+        uses-material-design: true
+        assets:
+          - assets/
+      ```
+   - Execution de la commande pour générer les ressources
+      ````bash
+      dart run flutter_native_splash:create
+      ```
+     <br/><img src="readme/2.png" alt="icon splash" /> <br>

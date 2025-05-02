@@ -1,0 +1,11 @@
+flutter_native_splash:
+  color: "#ffffff"  # Couleur de fond
+  image: assets/icon/icon.png  # Votre logo
+  color_dark: "#ffffff"  # Couleur en mode sombre (optionnel)
+  image_dark: assets/icon/icon.png  # Logo pour le mode sombre (optionnel)
+
+  android_12:
+    image: assets/icon/icon.png
+    icon_background_color: "#ffffff"
+
+  web: false  # Désactiver pour le web si non utilisé
