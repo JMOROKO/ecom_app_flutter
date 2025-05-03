@@ -1,4 +1,5 @@
 import 'package:ecom_app_flutter/widgets/drawer.item.dart';
+import 'package:ecom_app_flutter/widgets/entetemenu.drawerheader.dart';
 import 'package:flutter/material.dart';
 
 class MenuDrawerWidget extends StatelessWidget{
@@ -9,6 +10,10 @@ class MenuDrawerWidget extends StatelessWidget{
     return Drawer(
       child: Column(
         children: [
+          // appel de l'entete du menu
+          EnteteMenuDrawerHeader(),
+
+          //mise en place du menu
           DrawerItem(
               title: "Accueil",
               itemIcon: Icon(

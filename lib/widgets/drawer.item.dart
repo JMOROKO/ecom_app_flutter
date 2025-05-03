@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// template du menu drawer
 class DrawerItem extends StatelessWidget{
   final String title;
   final Icon itemIcon;
