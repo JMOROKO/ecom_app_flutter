@@ -39,4 +39,9 @@
       ```bash
           dart run flutter_native_splash:create
       ```
-   <br/><img src="readme/2.jpg" alt="icon splash" /> <br>
+      <br/><img src="readme/2.jpg" alt="icon splash" /> <br>
+3. Mise en place du Menu 
+4. Création des pages
+   - Page customer
+   - Page Inventories
+   - Bills
