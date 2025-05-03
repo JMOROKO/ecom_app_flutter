@@ -15,6 +15,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      //masquer la barre de debug
+      debugShowCheckedModeBanner: false,
       // routage
       routes: {
         "/": (context) => HomePage(),
