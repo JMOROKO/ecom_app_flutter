@@ -1,11 +1,16 @@
 # ecom_app_flutter
 
 1. Changer le logo de l'application
-    - Il faut placer l'icon dans le dossier `assets/icon`
+    - Il faut placer l'icon dans le dossier 
+      ```yaml
+         assets:
+            - assets/logo/
+            - assets/icon/
+      ```
     - Installation du package flutter_launcher_icons
-    ```bash
-      flutter pub add flutter_launcher_icons
-   ```
+      ```bash
+         flutter pub add flutter_launcher_icons
+      ```
     - configuration de l'icon dans le fichier pubspec.yaml
         ```yaml
           flutter_launcher_icons:
@@ -20,12 +25,12 @@
             macos:
               generate: true
         ```
-    - Exécuter la commande suivante pour générer l'icon
-      ```bash
-        flutter pub run flutter_launcher_icons
-      ```
-   Cela aura pour effet de changer l'icon de l'application sur toutes les plateformes (Android, iOS, Web, Windows, MacOS). <br/>
-    <img src="readme/1.jpg" alt="icon" /> <br>
+      - Exécuter la commande suivante pour générer l'icon
+        ```bash
+          flutter pub run flutter_launcher_icons
+        ```
+      Cela aura pour effet de changer l'icon de l'application sur toutes les plateformes (Android, iOS, Web, Windows, MacOS). <br/>
+      <img src="readme/1.jpg" alt="icon" /> <br>
 2. Changer le splash de l'application
    - Installation de la dependance
      - flutter pub add flutter_native_splash
@@ -35,7 +40,8 @@
       flutter:
         uses-material-design: true
         assets:
-          - assets/
+          - assets/logo/
+          - assets/icon/
       ```
    - Execution de la commande pour générer les ressources
       ```bash
