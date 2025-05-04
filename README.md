@@ -3,7 +3,9 @@
 1. Changer le logo de l'application
     - Il faut placer l'icon dans le dossier `assets/icon`
     - Installation du package flutter_launcher_icons
-      - flutter pub add flutter_launcher_icons
+    ```bash
+      flutter pub add flutter_launcher_icons
+   ```
     - configuration de l'icon dans le fichier pubspec.yaml
         ```yaml
           flutter_launcher_icons:
@@ -63,6 +65,81 @@ Il se fait comme suit :
    ```dart
       Navigator.pushNamed(context, "${route}");
    ```
+    - Menu
+      Pour mettre en place le menu il faut d'abord réaliser un draweritem qui servira au templace du menu
+    ```dart
+      Widget build(BuildContext context) {
+            return ListTile(
+              leading: itemIcon,
+              trailing: Icon(Icons.arrow_forward),
+              title: Text("${title}"),
+              onTap: () {
+                // fermer le menu drawer
+                Navigator.of(context).pop();
+                // naviguer vers la route
+                Navigator.pushNamed(context, "${route}");
+              },
+            );
+        }
+    ```
+    - Barre de navigation
+      La barre de navigation se fait grace au menu drawer
+    ```dart
+      Widget build(BuildContext context) {
+        return Drawer(
+          child: Column(
+            children: [
+    
+              //mise en place du menu
+              DrawerItem(
+                  title: "Accueil",
+                  itemIcon: Icon(
+                      Icons.home,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  route: "/"
+              ),
+              Divider(
+                height: 0.5,
+                color: Theme.of(context).primaryColor,
+              ),
+              DrawerItem(
+                  title: "Customer",
+                  itemIcon: Icon(
+                    Icons.verified_user,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  route: "/customer"
+              ),
+              Divider(
+                height: 0.5,
+                color: Theme.of(context).primaryColor,
+              ),
+              DrawerItem(
+                  title: "Bills",
+                  itemIcon: Icon(
+                    Icons.list_alt,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  route: "/bills"
+              ),
+              Divider(
+                height: 0.5,
+                color: Theme.of(context).primaryColor,
+              ),
+              DrawerItem(
+                  title: "Inventories",
+                  itemIcon: Icon(
+                    Icons.inventory,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  route: "/inventories"
+              ),
+            ],
+          ),
+        );
+    }
+    ```
     - Entête header
         L'entête header se met en place grace au widget DrawerHeader
         ```dart
@@ -88,25 +165,7 @@ Il se fait comme suit :
               ),
            );
         ```
-    - Menu
-    Pour mettre en place le menu il faut d'abord réaliser un draweritem qui servira au templace du menu
-    ```dart
-      Widget build(BuildContext context) {
-            return ListTile(
-              leading: itemIcon,
-              trailing: Icon(Icons.arrow_forward),
-              title: Text("${title}"),
-              onTap: () {
-                // fermer le menu drawer
-                Navigator.of(context).pop();
-                // naviguer vers la route
-                Navigator.pushNamed(context, "${route}");
-              },
-            );
-        }
-    ```
-    - Barre de navigation
-    La barre de navigation se fait grace au menu drawer
+      - Utilisation de l'entête header
     ```dart
       Widget build(BuildContext context) {
         return Drawer(
@@ -165,6 +224,7 @@ Il se fait comme suit :
         );
     }
     ```
+    
 5. Création des pages
    - Page customer
    - Page Inventories
