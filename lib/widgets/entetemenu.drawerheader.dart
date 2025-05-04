@@ -10,7 +10,8 @@ class EnteteMenuDrawerHeader extends StatelessWidget{
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           CircleAvatar(
-            backgroundImage: AssetImage("assets/icon/icon.png"),
+            // backgroundColor: Colors.transparent,
+            backgroundImage: AssetImage("assets/logo/reactiv.png"),
             radius: 60,
           ),
           Text("Menu application")
