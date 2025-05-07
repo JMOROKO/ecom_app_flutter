@@ -32,7 +32,7 @@ class MenuDrawerWidget extends StatelessWidget{
                 Icons.verified_user,
                 color: Theme.of(context).primaryColor,
               ),
-              route: "/customer"
+              route: "/customers"
           ),
           Divider(
             height: 0.5,
