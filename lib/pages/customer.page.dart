@@ -16,17 +16,23 @@ class CustomerPage extends StatelessWidget{
         title: Text('Customer liste'),
         backgroundColor: Theme.of(context).primaryColor,
       ),
-      body: ListView.builder(
+      body:
+      clients.length == 0 ?
+          Center(
+            child: Text("Veuillez d'abord ajouter un client."),
+          ) :
+      ListView.builder(
         padding: const EdgeInsets.all(8.0),
-        itemCount: clients.length,
+        itemCount: clients.length ?? 0,
         itemBuilder: (context, index) {
           final client = clients[index];
-          return Card(
+          return
+          Card(
             elevation: 2.0,
             margin: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
             child: ListTile(
               leading: CircleAvatar(
-                backgroundColor: Colors.blue,
+                backgroundColor: Theme.of(context).primaryColor, //Colors.blue,
                 child: Text(
                   client.name[0],
                   style: const TextStyle(color: Colors.white),
