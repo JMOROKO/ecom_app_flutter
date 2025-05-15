@@ -344,3 +344,8 @@ Il se fait comme suit :
      - Modification de la page stateless en statefull
    - Page Inventories
    - Bills
+
+- Visuel de l'application finale
+  <br/><img src="readme/3.jpg" alt="icon splash" /> <br>
+  <br/><img src="readme/4.jpg" alt="icon splash" /> <br>
+  <br/><img src="readme/5.jpg" alt="icon splash" /> <br>
