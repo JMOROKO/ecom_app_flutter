@@ -1,8 +1,39 @@
+import 'package:ecom_app_flutter/services/customers.service.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/menu.drawer.widget.dart';
 
-class HomePage extends StatelessWidget{
+class HomePage extends StatefulWidget{
+  const HomePage({super.key});
+
+
+
+  @override
+  HomePageState createState() => HomePageState();
+
+}
+
+class HomePageState extends State<HomePage> with WidgetsBindingObserver {
+  int nbrCustomer = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    countCustomer();
+  }
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      // L'application a repris le premier plan
+      countCustomer();
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +65,7 @@ class HomePage extends StatelessWidget{
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        '${0}',
+                        '${nbrCustomer}',
                         style: TextStyle(
                           fontSize: 36,
                           fontWeight: FontWeight.bold,
@@ -81,5 +112,9 @@ class HomePage extends StatelessWidget{
         ),
       ),
     );
+  }
+
+  countCustomer() async{
+    nbrCustomer = await CustomerService().countAllCustomer();
   }
 }

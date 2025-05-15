@@ -233,5 +233,114 @@ Il se fait comme suit :
     
 5. Création des pages
    - Page customer
+     - Ajout d'un header
+     ```dart
+     appBar: AppBar(
+        title: Text('Customer liste'),
+        backgroundColor: Theme.of(context).primaryColor,
+      ),
+     ```
+     - Création de la class customer
+     ```dart
+      
+       class Customer{
+            final int id;
+            final String name;
+            final String email;
+            
+            Customer({required this.id, required this.name, required this.email});
+            
+            factory Customer.fromJson(Map<String, dynamic> json) {
+            return Customer(
+            id: json['id'] as int,
+            name: json['name'] as String,
+            email: json['email'] as String,
+            );
+            }
+            
+            Map<String, dynamic> toJson() {
+            return {
+            'id': id,
+            'name': name,
+            'email': email,
+            };
+          }
+      }
+     ```
+     - Affichage de la liste des utilisateurs
+     ```dart
+     body:
+      clients.length == 0 ?
+          Center(
+            child: Text("Veuillez d'abord ajouter un client."),
+          ) :
+      ListView.builder(
+        padding: const EdgeInsets.all(8.0),
+        itemCount: clients.length ?? 0,
+        itemBuilder: (context, index) {
+          final client = clients[index];
+          return
+          Card(
+            elevation: 2.0,
+            margin: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Theme.of(context).primaryColor, //Colors.blue,
+                child: Text(
+                  client.name[0],
+                  style: const TextStyle(color: Colors.white),
+                ),
+              ),
+              title: Text(
+                client.name,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(client.email),
+                ],
+              ),
+              onTap: () {
+                // lors du clic je veux lancer un appel téléphonique au client
+                // Action lors du clic sur un client
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Client: ${client.name}')),
+                );
+              },
+            ),
+          );
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Action to perform when the button is pressed
+        },
+        child: Icon(Icons.add),
+      ),
+     ```
+     - Consommation de l'API customer
+       - Ajouter le package http dans le fichier pubspec.yaml
+       ```bash
+         dart pub add http
+       ```
+       - ensuite saisir la commande
+       ```bash
+         dart pub get
+       ```
+       - creation du service customer
+     ```dart
+      Future<List<Customer>> getAllCustomer() async{
+         final uri = Uri.parse(baseURL + customerURL + customerListURL);
+         final call = await get(uri);
+         print('Status code: ${call.statusCode}');
+         Map<String, dynamic> data = json.decode(call.body);
+         List<dynamic> customersJson = data['_embedded']['customers'];
+         List<Customer> customers = customersJson.map<Customer>( (json) => Customer.fromJson(json) ).toList();
+         //print(customers);
+         return customers;
+      }
+     ```
+     - Modification de la page stateless en statefull
    - Page Inventories
    - Bills
