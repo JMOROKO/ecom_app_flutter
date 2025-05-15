@@ -23,6 +23,7 @@ class CustomerHomeViewState extends State<CustomerPage>{
     getAllCustomer();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

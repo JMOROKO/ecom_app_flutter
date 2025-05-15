@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget{
 }
 
 class HomePageState extends State<HomePage> with WidgetsBindingObserver {
-  int nbrCustomer = 0;
+  int nbrCustomer = -1;
 
   @override
   void initState() {
@@ -22,11 +22,13 @@ class HomePageState extends State<HomePage> with WidgetsBindingObserver {
     WidgetsBinding.instance.addObserver(this);
     countCustomer();
   }
+
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
+
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
@@ -115,6 +117,9 @@ class HomePageState extends State<HomePage> with WidgetsBindingObserver {
   }
 
   countCustomer() async{
-    nbrCustomer = await CustomerService().countAllCustomer();
+    final nbr = await CustomerService().countAllCustomer();
+    setState(() {
+      nbrCustomer = nbr;
+    });
   }
 }
